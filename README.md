@@ -1,6 +1,7 @@
 # MorphTransitions
 
 Morph transitions from FAB to dialog, and Button to dialog
+Inspired by [Plaid](https://github.com/nickbutcher/plaid)
 
 [![Build Status](https://travis-ci.org/Commit451/MorphTransitions.svg?branch=master)](https://travis-ci.org/Commit451/MorphTransitions)
 
@@ -16,7 +17,8 @@ dependencies {
 License
 --------
 
-    Copyright 2015 Commit 451
+    Copyright 2015 Google, Inc
+    Copyright 2016 Commit 451
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
