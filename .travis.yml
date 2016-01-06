@@ -22,3 +22,5 @@ before_script:
 
 #Ignore the fabric step, since we do not have a legit API key for Fabric
 script: "./gradlew build"
+
+sudo: false
