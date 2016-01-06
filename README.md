@@ -2,7 +2,7 @@
 
 Morph transitions from FAB to dialog, and Button to dialog
 
-[![Build Status](https://travis-ci.org/Commit451/NativeStackBlur.svg?branch=master)](https://travis-ci.org/Commit451/NativeStackBlur)  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-NativeStackBlur-green.svg?style=flat)](https://android-arsenal.com/details/1/2495)
+[![Build Status](https://travis-ci.org/Commit451/MorphTransitions.svg?branch=master)](https://travis-ci.org/Commit451/MorphTransitions)
 
 # Gradle Dependency
 Easily reference the library in your Android projects using this dependency in your module's `build.gradle` file:
