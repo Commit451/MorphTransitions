@@ -1,6 +1,7 @@
 # MorphTransitions
 
 Morph transitions from FAB to dialog, and Button to dialog
+
 Inspired by [Plaid](https://github.com/nickbutcher/plaid)
 
 [![Build Status](https://travis-ci.org/Commit451/MorphTransitions.svg?branch=master)](https://travis-ci.org/Commit451/MorphTransitions)

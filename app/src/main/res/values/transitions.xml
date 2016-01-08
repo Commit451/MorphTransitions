@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="transitions_fab_to_dialog"/>
+    <string name="transitions_fab_to_dialog">fab_to_dialog</string>
+    <string name="transitions_button_to_dialog">button_to_dialog</string>
 </resources>
