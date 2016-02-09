@@ -1,9 +1,10 @@
 package com.commit451.morphtransitions.sample;
 
-import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -15,6 +16,17 @@ import com.commit451.morphtransitions.MorphManager;
  */
 public class DialogActivity extends AppCompatActivity {
 
+    private static final String EXTRA_TYPE = "type";
+
+    public static final int TYPE_FAB = 1;
+    public static final int TYPE_BUTTON = 2;
+
+    public static Intent newIntent(Context context, int type) {
+        Intent intent = new Intent(context, DialogActivity.class);
+        intent.putExtra(EXTRA_TYPE, type);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,23 +35,27 @@ public class DialogActivity extends AppCompatActivity {
         findViewById(R.id.root).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+                ActivityCompat.finishAfterTransition(DialogActivity.this);
             }
         });
 
-        MorphManager.morph(this,
-                findViewById(R.id.container),
-                ColorUtil.getThemeAttrColor(this, R.attr.colorAccent),
-                Color.WHITE,
-                getResources().getDimensionPixelSize(R.dimen.dialog_corners));
-    }
+        int type = getIntent().getIntExtra(EXTRA_TYPE, TYPE_FAB);
 
-    @TargetApi(21)
-    public void dismiss() {
-        if (Build.VERSION.SDK_INT >= 21) {
-            finishAfterTransition();
-        } else {
-            finish();
+        switch (type) {
+            case TYPE_BUTTON:
+                MorphManager.morph(this,
+                        findViewById(R.id.container),
+                        ColorUtil.getThemeAttrColor(this, R.attr.colorAccent),
+                        Color.WHITE);
+                break;
+            case TYPE_FAB:
+                MorphManager.morph(this,
+                        findViewById(R.id.container),
+                        ColorUtil.getThemeAttrColor(this, R.attr.colorAccent),
+                        Color.WHITE,
+                        getResources().getDimensionPixelSize(R.dimen.dialog_corners));
+                break;
         }
+
     }
 }

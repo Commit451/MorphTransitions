@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, DialogActivity.class);
+                Intent intent = DialogActivity.newIntent(MainActivity.this, DialogActivity.TYPE_FAB);
                 if (Build.VERSION.SDK_INT >= 21) {
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation
-                            (MainActivity.this, view, getString(R.string.transitions_fab_to_dialog));
+                            (MainActivity.this, view, getString(R.string.morph_transition));
                     startActivity(intent, options.toBundle());
                 } else {
                     startActivity(intent);
@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DialogActivity.class);
+                Intent intent = DialogActivity.newIntent(MainActivity.this, DialogActivity.TYPE_BUTTON);
                 if (Build.VERSION.SDK_INT >= 21) {
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation
-                            (MainActivity.this, v, getString(R.string.transitions_fab_to_dialog));
+                            (MainActivity.this, v, getString(R.string.morph_transition));
                     startActivity(intent, options.toBundle());
                 } else {
                     startActivity(intent);

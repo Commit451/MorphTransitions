@@ -19,7 +19,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
-        android:transitionName="@string/transitions_fab_to_dialog"
+        android:transitionName="@string/morph_transition"
         android:clickable="true">
 
         <ImageView

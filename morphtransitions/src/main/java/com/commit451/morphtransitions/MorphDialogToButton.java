@@ -7,6 +7,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.transition.ChangeBounds;
 import android.transition.TransitionValues;
 import android.util.AttributeSet;
@@ -115,7 +116,7 @@ public class MorphDialogToButton extends ChangeBounds {
         AnimatorSet transition = new AnimatorSet();
         transition.playTogether(changeBounds, color);
         transition.setDuration(300);
-        transition.setInterpolator(AnimUtils.getMaterialInterpolator());
+        transition.setInterpolator(new FastOutSlowInInterpolator());
         return transition;
     }
 }

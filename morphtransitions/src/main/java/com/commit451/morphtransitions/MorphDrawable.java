@@ -34,8 +34,7 @@ import android.util.Property;
 public class MorphDrawable extends Drawable {
 
     private float cornerRadius;
-    public static final Property<MorphDrawable, Float> CORNER_RADIUS = new AnimUtils
-            .FloatProperty<MorphDrawable>("cornerRadius") {
+    public static final Property<MorphDrawable, Float> CORNER_RADIUS = new FloatProperty<MorphDrawable>("cornerRadius") {
 
         @Override
         public void setValue(MorphDrawable morphDrawable, float value) {
@@ -48,8 +47,7 @@ public class MorphDrawable extends Drawable {
         }
     };
     private Paint paint;
-    public static final Property<MorphDrawable, Integer> COLOR = new AnimUtils
-            .IntProperty<MorphDrawable>("color") {
+    public static final Property<MorphDrawable, Integer> COLOR = new IntProperty<MorphDrawable>("color") {
 
         @Override
         public void setValue(MorphDrawable morphDrawable, int value) {
