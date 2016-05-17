@@ -12,7 +12,7 @@ import android.util.Property;
  *
  * @param <T> The class on which the Property is declared.
  **/
-public abstract class FloatProperty<T> extends Property<T, Float> {
+abstract class FloatProperty<T> extends Property<T, Float> {
     public FloatProperty(String name) {
         super(Float.class, name);
     }

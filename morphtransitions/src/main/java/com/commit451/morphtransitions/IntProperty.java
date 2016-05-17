@@ -12,7 +12,7 @@ import android.util.Property;
  *
  * @param <T> The class on which the Property is declared.
  */
-public abstract class IntProperty<T> extends Property<T, Integer> {
+abstract class IntProperty<T> extends Property<T, Integer> {
 
     public IntProperty(String name) {
         super(Integer.class, name);
