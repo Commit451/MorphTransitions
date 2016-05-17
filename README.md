@@ -5,15 +5,8 @@ Morph transitions from FAB to dialog, and Button to dialog
 Inspired by [Plaid](https://github.com/nickbutcher/plaid)
 
 [![Build Status](https://travis-ci.org/Commit451/MorphTransitions.svg?branch=master)](https://travis-ci.org/Commit451/MorphTransitions)
+[![](https://jitpack.io/v/Commit451/MorphTransitions.svg)](https://jitpack.io/#Commit451/MorphTransitions)
 
-# Gradle Dependency
-Easily reference the library in your Android projects using this dependency in your module's `build.gradle` file:
-
-```Gradle
-dependencies {
-    compile 'com.commit451:morphtransitions:1.0.0'
-}
-```
 
 License
 --------

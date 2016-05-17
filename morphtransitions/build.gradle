@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 23
@@ -28,12 +27,4 @@ dependencies {
     compile 'com.android.support:support-v4:23.4.0'
 }
 
-// ./gradlew clean build bintrayUpload -PbintrayUser=commit451 -PbintrayKey=BINTRAY_KEY -PdryRun=false
-publish {
-    userOrg = 'commit451'
-    groupId = 'com.commit451'
-    artifactId = 'morphtransitions'
-    publishVersion = '1.0.0'
-    desc = 'Morph transitions from buttons to dialogs and back'
-    website = 'https://github.com/Commit451/MorphTransitions'
-}
+apply from: 'https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.0.0/gradle-android-javadocs.gradle'
