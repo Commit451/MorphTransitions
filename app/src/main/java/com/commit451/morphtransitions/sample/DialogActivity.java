@@ -8,7 +8,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.commit451.morphtransitions.MorphManager;
+import com.commit451.morphtransitions.FabTransform;
+import com.commit451.morphtransitions.MorphTransform;
 
 /**
  * Activity which looks like a dialog
@@ -39,23 +40,18 @@ public class DialogActivity extends AppCompatActivity {
             }
         });
 
-        int type = getIntent().getIntExtra(EXTRA_TYPE, TYPE_FAB);
+        View container = findViewById(R.id.container);
 
-        switch (type) {
-            case TYPE_BUTTON:
-                MorphManager.morph(this,
-                        findViewById(R.id.container),
-                        ColorUtil.getThemeAttrColor(this, R.attr.colorAccent),
-                        Color.WHITE);
-                break;
+        //This could probably be better. Basically checks to see if it is a FabTransform. If not,
+        //tries out being a MorphTransform
+        switch (getIntent().getIntExtra(EXTRA_TYPE, -1)) {
             case TYPE_FAB:
-                MorphManager.morph(this,
-                        findViewById(R.id.container),
-                        ColorUtil.getThemeAttrColor(this, R.attr.colorAccent),
-                        Color.WHITE,
+                FabTransform.setup(this, container);
+                break;
+            case TYPE_BUTTON:
+                MorphTransform.setup(this, container, Color.WHITE,
                         getResources().getDimensionPixelSize(R.dimen.dialog_corners));
                 break;
         }
-
     }
 }

@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+
+import com.commit451.morphtransitions.FabTransform;
+import com.commit451.morphtransitions.MorphTransform;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = DialogActivity.newIntent(MainActivity.this, DialogActivity.TYPE_FAB);
                 if (Build.VERSION.SDK_INT >= 21) {
+                    FabTransform.addExtras(intent, ContextCompat.getColor(MainActivity.this, R.color.colorAccent),
+                            R.drawable.ic_mood_24dp);
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation
                             (MainActivity.this, view, getString(R.string.morph_transition));
                     startActivity(intent, options.toBundle());
@@ -42,8 +48,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = DialogActivity.newIntent(MainActivity.this, DialogActivity.TYPE_BUTTON);
                 if (Build.VERSION.SDK_INT >= 21) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation
-                            (MainActivity.this, v, getString(R.string.morph_transition));
+                    MorphTransform.addExtras(intent,
+                            ContextCompat.getColor(MainActivity.this, R.color.colorAccent),
+                            getResources().getDimensionPixelSize(R.dimen.dialog_corners));
+                    ActivityOptions options =
+                            ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, v,
+                                    getString(R.string.morph_transition));
                     startActivity(intent, options.toBundle());
                 } else {
                     startActivity(intent);
