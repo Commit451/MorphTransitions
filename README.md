@@ -7,6 +7,25 @@ Inspired by [Plaid](https://github.com/nickbutcher/plaid)
 [![Build Status](https://travis-ci.org/Commit451/MorphTransitions.svg?branch=master)](https://travis-ci.org/Commit451/MorphTransitions)
 [![](https://jitpack.io/v/Commit451/MorphTransitions.svg)](https://jitpack.io/#Commit451/MorphTransitions)
 
+# Usage
+See the sample app. Typical usage:
+```java
+MorphTransform.addExtras(intent, color, dialogCornerRadius);
+ActivityOptions options =
+        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, button,
+                getString(R.string.morph_transition));
+startActivity(intent, options.toBundle());
+```
+in the first activity, then:
+```java
+MorphTransform.setup(this, container, color, dialogCornerRadius));
+```
+in the next activity. Be sure that you override `onBackPressed()` and call `ActivityCompat.finishAfterTransition(DialogActivity.this);`
+
+In addition, be sure that your activities themes have the attribute:
+```xml
+<item name="android:windowContentTransitions">true</item>
+```
 
 License
 --------
