@@ -30,7 +30,7 @@ import android.util.AttributeSet;
  * See https://www.google.com/design/spec/motion/movement.html#movement-movement-within-screen-bounds
  */
 @TargetApi(21)
-public class GravityArcMotion extends ArcMotion {
+class GravityArcMotion extends ArcMotion {
 
     private static final float DEFAULT_MIN_ANGLE_DEGREES = 0;
     private static final float DEFAULT_MAX_ANGLE_DEGREES = 70;

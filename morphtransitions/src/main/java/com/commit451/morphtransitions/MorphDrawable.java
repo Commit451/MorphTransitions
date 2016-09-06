@@ -31,7 +31,7 @@ import android.util.Property;
  * useful for animating between a FAB and a dialog.
  */
 @TargetApi(21)
-public class MorphDrawable extends Drawable {
+class MorphDrawable extends Drawable {
 
     private float cornerRadius;
     public static final Property<MorphDrawable, Float> CORNER_RADIUS = new FloatProperty<MorphDrawable>("cornerRadius") {
