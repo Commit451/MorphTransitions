@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 import com.commit451.morphtransitions.FabTransform;
 import com.commit451.morphtransitions.MorphTransform;
@@ -23,17 +24,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
 
+        final Switch switchFullScreen = (Switch) findViewById(R.id.switch_full_screen);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = DialogActivity.newIntent(MainActivity.this, DialogActivity.TYPE_FAB);
+                Intent intent;
+                if (switchFullScreen.isChecked()) {
+                    intent = new Intent(MainActivity.this, FullScreenActivity.class);
+                } else {
+                    intent = DialogActivity.newIntent(MainActivity.this, DialogActivity.TYPE_FAB);
+                }
                 if (Build.VERSION.SDK_INT >= 21) {
                     FabTransform.addExtras(intent, ContextCompat.getColor(MainActivity.this, R.color.colorAccent),
                             R.drawable.ic_mood_24dp);
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation
-                            (MainActivity.this, view, getString(R.string.morph_transition));
+                            (MainActivity.this, view, getString(R.string.transition_morph));
                     startActivity(intent, options.toBundle());
                 } else {
                     startActivity(intent);
@@ -53,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             getResources().getDimensionPixelSize(R.dimen.dialog_corners));
                     ActivityOptions options =
                             ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, v,
-                                    getString(R.string.morph_transition));
+                                    getString(R.string.transition_morph));
                     startActivity(intent, options.toBundle());
                 } else {
                     startActivity(intent);

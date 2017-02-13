@@ -39,26 +39,11 @@ import android.view.ViewGroup;
 @TargetApi(21)
 public class MorphTransform extends ChangeBounds {
 
-    private  static final String EXTRA_SHARED_ELEMENT_START_COLOR =
+    private static final String EXTRA_SHARED_ELEMENT_START_COLOR =
             "EXTRA_SHARED_ELEMENT_START_COLOR";
     private static final String EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS =
             "EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS";
     private static final long DEFAULT_DURATION = 300L;
-
-    private final int startColor;
-    private final int endColor;
-    private final int startCornerRadius;
-    private final int endCornerRadius;
-
-    public MorphTransform(@ColorInt int startColor, @ColorInt int endColor,
-                          int startCornerRadius, int endCornerRadius) {
-        this.startColor = startColor;
-        this.endColor = endColor;
-        this.startCornerRadius = startCornerRadius;
-        this.endCornerRadius = endCornerRadius;
-        setDuration(DEFAULT_DURATION);
-        setPathMotion(new GravityArcMotion());
-    }
 
     /**
      * Configure {@code intent} with the extras needed to initialize this transition.
@@ -99,6 +84,21 @@ public class MorphTransform extends ChangeBounds {
         }
         activity.getWindow().setSharedElementEnterTransition(sharedEnter);
         activity.getWindow().setSharedElementReturnTransition(sharedReturn);
+    }
+
+    private final int startColor;
+    private final int endColor;
+    private final int startCornerRadius;
+    private final int endCornerRadius;
+
+    public MorphTransform(@ColorInt int startColor, @ColorInt int endColor,
+                          int startCornerRadius, int endCornerRadius) {
+        this.startColor = startColor;
+        this.endColor = endColor;
+        this.startCornerRadius = startCornerRadius;
+        this.endCornerRadius = endCornerRadius;
+        setDuration(DEFAULT_DURATION);
+        setPathMotion(new GravityArcMotion());
     }
 
     @Override

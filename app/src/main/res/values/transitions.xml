@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="morph_transition">morph_transition</string>
+    <string name="transition_morph">morph_transition</string>
 </resources>

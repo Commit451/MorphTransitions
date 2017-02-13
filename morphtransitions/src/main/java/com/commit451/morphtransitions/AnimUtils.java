@@ -32,7 +32,8 @@ import java.util.ArrayList;
 @TargetApi(21)
 class AnimUtils {
 
-    private AnimUtils() { }
+    private AnimUtils() {
+    }
 
     private static Interpolator fastOutSlowIn;
     private static Interpolator fastOutLinearIn;

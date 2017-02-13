@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,17 +9,17 @@
         android:id="@+id/container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="256dp"
-        android:minHeight="100dp"
         android:layout_gravity="center"
         android:background="@android:color/white"
+        android:clickable="true"
         android:elevation="24dp"
+        android:minHeight="100dp"
+        android:minWidth="256dp"
         android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
-        android:transitionName="@string/morph_transition"
-        android:clickable="true">
+        android:transitionName="@string/transition_morph">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -28,14 +27,14 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_mood_24dp"/>
+            android:src="@drawable/ic_mood_24dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="14sp"
-            android:text="@string/hello"/>
+            android:text="@string/hello"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

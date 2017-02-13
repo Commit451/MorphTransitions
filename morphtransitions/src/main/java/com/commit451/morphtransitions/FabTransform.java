@@ -59,11 +59,40 @@ public class FabTransform extends Transition {
 
     private static final String EXTRA_FAB_COLOR = "EXTRA_FAB_COLOR";
     private static final String EXTRA_FAB_ICON_RES_ID = "EXTRA_FAB_ICON_RES_ID";
-    private static final long DEFAULT_DURATION = 240L;
+    private static final long DEFAULT_DURATION = 300L;
     private static final String PROP_BOUNDS = "plaid:fabTransform:bounds";
     private static final String[] TRANSITION_PROPERTIES = {
             PROP_BOUNDS
     };
+
+    /**
+     * Configure {@code intent} with the extras needed to initialize this transition.
+     */
+    public static void addExtras(@NonNull Intent intent, @ColorInt int fabColor,
+                                 @DrawableRes int fabIconResId) {
+        intent.putExtra(EXTRA_FAB_COLOR, fabColor);
+        intent.putExtra(EXTRA_FAB_ICON_RES_ID, fabIconResId);
+    }
+
+    /**
+     * Create a {@link FabTransform} from the supplied {@code activity} extras and set as its
+     * shared element enter/return transition.
+     */
+    public static boolean setup(@NonNull Activity activity, @Nullable View target) {
+        final Intent intent = activity.getIntent();
+        if (!intent.hasExtra(EXTRA_FAB_COLOR) || !intent.hasExtra(EXTRA_FAB_ICON_RES_ID)) {
+            return false;
+        }
+
+        final int color = intent.getIntExtra(EXTRA_FAB_COLOR, Color.TRANSPARENT);
+        final int icon = intent.getIntExtra(EXTRA_FAB_ICON_RES_ID, -1);
+        final FabTransform sharedEnter = new FabTransform(color, icon);
+        if (target != null) {
+            sharedEnter.addTarget(target);
+        }
+        activity.getWindow().setSharedElementEnterTransition(sharedEnter);
+        return true;
+    }
 
     private final int color;
     private final int icon;
@@ -95,35 +124,6 @@ public class FabTransform extends Transition {
         }
     }
 
-    /**
-     * Configure {@code intent} with the extras needed to initialize this transition.
-     */
-    public static void addExtras(@NonNull Intent intent, @ColorInt int fabColor,
-                                 @DrawableRes int fabIconResId) {
-        intent.putExtra(EXTRA_FAB_COLOR, fabColor);
-        intent.putExtra(EXTRA_FAB_ICON_RES_ID, fabIconResId);
-    }
-
-    /**
-     * Create a {@link FabTransform} from the supplied {@code activity} extras and set as its
-     * shared element enter/return transition.
-     */
-    public static boolean setup(@NonNull Activity activity, @Nullable View target) {
-        final Intent intent = activity.getIntent();
-        if (!intent.hasExtra(EXTRA_FAB_COLOR) || !intent.hasExtra(EXTRA_FAB_ICON_RES_ID)) {
-            return false;
-        }
-
-        final int color = intent.getIntExtra(EXTRA_FAB_COLOR, Color.TRANSPARENT);
-        final int icon = intent.getIntExtra(EXTRA_FAB_ICON_RES_ID, -1);
-        final FabTransform sharedEnter = new FabTransform(color, icon);
-        if (target != null) {
-            sharedEnter.addTarget(target);
-        }
-        activity.getWindow().setSharedElementEnterTransition(sharedEnter);
-        return true;
-    }
-
     @Override
     public String[] getTransitionProperties() {
         return TRANSITION_PROPERTIES;
@@ -143,7 +143,7 @@ public class FabTransform extends Transition {
     public Animator createAnimator(final ViewGroup sceneRoot,
                                    final TransitionValues startValues,
                                    final TransitionValues endValues) {
-        if (startValues == null || endValues == null)  return null;
+        if (startValues == null || endValues == null) return null;
 
         final Rect startBounds = (Rect) startValues.values.get(PROP_BOUNDS);
         final Rect endBounds = (Rect) endValues.values.get(PROP_BOUNDS);
