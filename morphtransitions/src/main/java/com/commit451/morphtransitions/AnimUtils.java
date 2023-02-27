@@ -18,7 +18,6 @@ package com.commit451.morphtransitions;
 
 import android.animation.Animator;
 import android.animation.TimeInterpolator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.ArrayMap;
 import android.view.animation.AnimationUtils;
@@ -29,7 +28,6 @@ import java.util.ArrayList;
 /**
  * Utility methods for working with animations.
  */
-@TargetApi(21)
 class AnimUtils {
 
     private AnimUtils() {

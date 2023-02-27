@@ -16,21 +16,20 @@ package com.commit451.morphtransitions;
  * limitations under the License.
  */
 
-import android.annotation.TargetApi;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Outline;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
 import android.util.Property;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 /**
  * A drawable that can morph size, shape (via it's corner radius) and color.  Specifically this is
  * useful for animating between a FAB and a dialog.
  */
-@TargetApi(21)
 class MorphDrawable extends Drawable {
 
     private float cornerRadius;

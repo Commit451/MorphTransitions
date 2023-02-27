@@ -20,23 +20,22 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.transition.ChangeBounds;
 import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 /**
  * An extension to {@link ChangeBounds} that also morphs the views background (color & corner
  * radius).
  */
-@TargetApi(21)
 public class MorphTransform extends ChangeBounds {
 
     private static final String EXTRA_SHARED_ELEMENT_START_COLOR =

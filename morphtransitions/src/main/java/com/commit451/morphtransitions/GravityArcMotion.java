@@ -16,7 +16,6 @@
 
 package com.commit451.morphtransitions;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Path;
 import android.transition.ArcMotion;
@@ -29,7 +28,6 @@ import android.util.AttributeSet;
  * <p>
  * See https://www.google.com/design/spec/motion/movement.html#movement-movement-within-screen-bounds
  */
-@TargetApi(21)
 class GravityArcMotion extends ArcMotion {
 
     private static final float DEFAULT_MIN_ANGLE_DEGREES = 0;
